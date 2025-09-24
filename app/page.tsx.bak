@@ -1,0 +1,48 @@
+"use client";
+
+import { Hero, SplitFeature, SpecRow, StackedPanels } from "@/components/Blocks";
+
+export default function Page() {
+  return (
+    <main>
+      {/* HERO: giant PRO + headline + full-bleed visual */}
+      <Hero />
+
+      {/* HIGHLIGHTS: three quick spec cards like Apple “highlights” */}
+      <SpecRow />
+
+      {/* DESIGN block */}
+      <SplitFeature
+        id="design"
+        eyebrow="Design"
+        title="Unibody workflow. Makes a strong case for itself."
+        copy="At the core is a heat-forged automation engine that maximizes rep velocity. Fewer clicks, fewer tabs, more pipeline."
+      />
+
+      {/* CAMERA-like block (your “analytics/zoom” story) */}
+      <SplitFeature
+        id="automation"
+        reverse
+        eyebrow="Automation"
+        title="A big zoom forward."
+        copy="See deeper context with automatic research and call prep. Zoom into the details that close deals, not the CRM."
+      />
+
+      {/* Stacked panels for immersive visuals */}
+      <StackedPanels />
+
+      {/* Final CTA */}
+      <section id="get" className="section py-28">
+        <div className="section-inner k text-center">
+          <h2 className="h0">Ready to add 20–30% to your close rate?</h2>
+          <p className="lead mt-3">Launch in days. Always on-brand. Always clean CRM.</p>
+          <div className="mt-8 flex items-center justify-center gap-3">
+            <a className="btn">Start free</a>
+            <a className="btn-outline">See pricing</a>
+          </div>
+        </div>
+      </section>
+    </main>
+  );
+}
+

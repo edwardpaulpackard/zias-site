@@ -1,0 +1,56 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* =========================
+   Theme tokens (Apple-ish)
+   ========================= */
+:root{
+  --bg:#0a0a0a;
+  --ink:#e6e6e6;
+  --dim:#a3a3a3;
+  --ring:rgba(255,255,255,.08);
+}
+
+html,body{height:100%}
+
+body{
+  background:var(--bg);
+  color:var(--ink);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+
+::selection{ background:rgba(255,255,255,.25); color:#000; }
+
+/* =========================
+   Layout helpers
+   ========================= */
+/* NOTE: Tailwind v4 does not allow responsive variants in @apply.
+   We keep base utilities in @apply and add the md padding via media query. */
+.page{ @apply relative overflow-x-clip; }
+.section{ @apply container max-w-6xl px-4; }
+@media (min-width: 768px){
+  .section{ padding-left: 1.5rem; padding-right: 1.5rem; } /* md:px-6 */
+}
+
+/* =========================
+   Buttons
+   ========================= */
+.btn{
+  @apply inline-flex items-center gap-2 rounded-full px-5 py-3 text-sm font-medium
+         ring-1 ring-[var(--ring)] text-white bg-white/10 hover:bg-white/20 transition;
+}
+.btn.primary{ @apply bg-white text-black hover:bg-white/90; }
+
+/* =========================
+   Media shells
+   ========================= */
+.frame{ @apply rounded-2xl overflow-hidden ring-1 ring-[var(--ring)] shadow-soft; }
+
+/* =========================
+   Headline helpers
+   ========================= */
+.h-hero{ @apply text-h1 font-semibold tracking-tight; }
+.h-lead{ @apply text-h2 text-[var(--dim)]; }
+

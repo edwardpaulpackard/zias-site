@@ -1,0 +1,293 @@
+### VERSIONS
+v22.19.0
+10.9.3
+tailwindcss version in package.json:
+    "tailwindcss": "^4.1.13",
+postcss version in package.json:
+    "postcss": "^8.5.6",
+autoprefixer version in package.json:
+    "autoprefixer": "^10.4.21",
+
+### PWD
+/Users/edwardpackard/zias-site
+
+### LS
+total 520
+drwxr-xr-x   20 edwardpackard  staff     640 Sep 24 13:43 .
+drwxr-x---+  21 edwardpackard  staff     672 Sep 20 14:35 ..
+drwxr-xr-x   12 edwardpackard  staff     384 Sep 20 15:28 .git
+-rw-r--r--    1 edwardpackard  staff     162 Sep 20 14:02 .gitignore
+drwxr-xr-x   13 edwardpackard  staff     416 Sep 24 13:30 .next
+drwxr-xr-x   11 edwardpackard  staff     352 Sep 21 19:57 app
+drwxr-xr-x    3 edwardpackard  staff      96 Sep 21 14:14 components
+-rw-r--r--    1 edwardpackard  staff     272 Sep 24 13:50 DIAG.txt
+-rw-r--r--    1 edwardpackard  staff     524 Sep 19 11:24 eslint.config.mjs
+-rw-r--r--    1 edwardpackard  staff     262 Sep 19 11:24 next-env.d.ts
+-rw-r--r--    1 edwardpackard  staff     133 Sep 19 11:24 next.config.ts
+drwxr-xr-x  295 edwardpackard  staff    9440 Sep 19 12:01 node_modules
+-rw-r--r--    1 edwardpackard  staff  218868 Sep 19 12:01 package-lock.json
+-rw-r--r--    1 edwardpackard  staff     699 Sep 19 12:01 package.json
+-rw-r--r--    1 edwardpackard  staff      72 Sep 19 12:01 postcss.config.js
+drwxr-xr-x    7 edwardpackard  staff     224 Sep 19 11:24 public
+-rw-r--r--    1 edwardpackard  staff    1450 Sep 19 11:24 README.md
+-rw-r--r--    1 edwardpackard  staff     673 Sep 24 13:27 tailwind.config.js
+-rw-r--r--    1 edwardpackard  staff    1061 Sep 21 19:57 tailwind.config.js.bak
+-rw-r--r--    1 edwardpackard  staff     598 Sep 19 11:24 tsconfig.json
+
+### FILES app/
+app/favicon.ico
+app/globals.css
+app/globals.css.bak
+app/layout.tsx
+app/layout.tsx.bak
+app/page.backup.tsx
+app/page.module.css
+app/page.tsx
+app/page.tsx.bak
+
+### FILES components/
+components/Blocks.tsx
+
+### package.json
+{
+  "name": "zias-site",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "NEXT_DISABLE_TURBOPACK=1 next dev",
+    "build": "next build --turbopack",
+    "start": "next start",
+    "lint": "eslint"
+  },
+  "dependencies": {
+    "framer-motion": "^12.23.16",
+    "next": "15.5.3",
+    "react": "19.1.0",
+    "react-dom": "19.1.0"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^3",
+    "@tailwindcss/postcss": "^4.1.13",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "autoprefixer": "^10.4.21",
+    "eslint": "^9",
+    "eslint-config-next": "15.5.3",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^4.1.13",
+    "typescript": "^5"
+  }
+}
+
+### tailwind.config.js
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  content: ['./app/**/*.{ts,tsx}', './components/**/*.{ts,tsx}'],
+  theme: {
+    extend: {
+      colors: {
+        bg: '#0a0a0a',
+        ink: '#e6e6e6',
+        dim: 'rgba(163,163,163,.85)',
+        ring: 'rgba(255,255,255,.08)',
+        brand: '#f97316',
+      },
+      fontSize: {
+        h1: ['clamp(2.25rem,4vw,3.5rem)', { letterSpacing: '-0.02em', lineHeight: '1.1' }],
+        h2: ['clamp(1.50rem,3vw,2.00rem)', { letterSpacing: '-0.01em', lineHeight: '1.15' }],
+      },
+      boxShadow: { soft: '0 20px 60px rgba(0,0,0,.45)' },
+      borderRadius: { '2xl': '1.25rem' },
+    },
+  },
+  plugins: [],
+};
+
+
+### postcss.config.js
+module.exports = {
+  plugins: {
+    '@tailwindcss/postcss': {},
+  },
+};
+
+### next.config.ts
+import type { NextConfig } from "next";
+
+const nextConfig: NextConfig = {
+  /* config options here */
+};
+
+export default nextConfig;
+
+### app/layout.tsx
+import './globals.css';
+import type { Metadata } from 'next';
+import { Inter } from 'next/font/google';
+
+const inter = Inter({ subsets: ['latin'] });
+
+export const metadata: Metadata = {
+  title: 'Zias',
+  description: 'Sales co-pilot',
+};
+
+export default function RootLayout({ children }: { children: React.ReactNode }) {
+  return (
+    <html lang="en">
+      <body className={inter.className}>{children}</body>
+    </html>
+  );
+}
+
+
+### app/globals.css
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Theme tokens */
+:root{
+  --bg:#0a0a0a;
+  --ink:#e6e6e6;
+  --dim:#a3a3a3;
+  --ring:rgba(255,255,255,.08);
+}
+html,body{height:100%}
+body{
+  background:var(--bg);
+  color:var(--ink);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+::selection{background:rgba(255,255,255,.25);color:#000}
+
+/* Layout helpers */
+.page{ @apply relative overflow-x-clip; }
+.section{ @apply container max-w-6xl px-4 md:px-6; }
+
+/* Buttons */
+.btn{ @apply inline-flex items-center gap-2 rounded-full px-5 py-3 text-sm font-medium ring-1 ring-[var(--ring)] text-white bg-white/10 hover:bg-white/20 transition; }
+.btn.primary{ @apply bg-white text-black hover:bg-white/90; }
+
+/* Media shells */
+.frame{ @apply rounded-2xl overflow-hidden ring-1 ring-[var(--ring)] shadow-soft; }
+
+/* Headline helpers */
+.h-hero{ @apply text-h1 font-semibold tracking-tight; }
+.h-lead{ @apply text-h2 text-[var(--dim)]; }
+
+
+### app/page.tsx
+"use client";
+
+export default function Page() {
+  return (
+    <main className="min-h-screen page">
+      {/* Top nav */}
+      <header className="sticky top-0 z-40 backdrop-blur supports-[backdrop-filter]:bg-black/40 bg-black/60 border-b border-white/10">
+        <div className="section flex items-center justify-between py-3">
+          <div className="flex items-center gap-2">
+            <span className="font-medium tracking-tight">Zias</span>
+          </div>
+          <nav className="hidden md:flex items-center gap-6 text-sm text-white/70">
+            <a className="hover:text-white transition" href="#design">Design</a>
+            <a className="hover:text-white transition" href="#automation">Automation</a>
+            <a className="btn primary" href="#get-started">Get started</a>
+          </nav>
+        </div>
+      </header>
+
+      {/* HERO */}
+      <section className="section text-center py-24 md:py-32">
+        <p className="text-xs tracking-[0.35em] text-white/50">PRO</p>
+        <h1 className="h-hero mt-6 max-w-3xl mx-auto">
+          Your new sales copilot is impossibly fast.
+        </h1>
+        <p className="h-lead mt-6 max-w-2xl mx-auto">
+          Zias preps calls, writes follow-ups, and updates your CRM automatically—so reps
+          spend time selling, not clicking.
+        </p>
+        <div className="mt-10 flex items-center justify-center gap-3">
+          <a className="btn primary" href="#">Start free</a>
+          <a className="btn" href="#pricing">See pricing</a>
+        </div>
+
+        {/* Placeholder for your hero media */}
+        <div className="mt-14 grid place-items-center">
+          <div className="frame h-[40vh] md:h-[56vh] bg-gradient-to-b from-white/5 to-white/[0.02] grid place-items-center">
+            <span className="text-white/40">Hero visual goes here (video / WebGL / canvas)</span>
+          </div>
+        </div>
+      </section>
+
+      {/* SECTION: Design */}
+      <section id="design" className="section py-24 md:py-32 border-t border-white/10">
+        <p className="text-xs tracking-[0.35em] text-white/50">DESIGN</p>
+        <h2 className="h-hero text-4xl sm:text-5xl">Unibody workflow. Makes a strong case for itself.</h2>
+        <p className="h-lead mt-6 max-w-3xl">
+          At the core is a heat-forged automation engine that maximizes rep velocity. Fewer
+          clicks, fewer tabs, more pipeline.
+        </p>
+
+        <div className="mt-10 grid grid-cols-1 md:grid-cols-3 gap-6">
+          {['Prep', 'Follow-ups', 'CRM'].map((title) => (
+            <div key={title} className="frame h-[36vh] bg-gradient-to-b from-white/5 to-white/[0.02] grid place-items-center">
+              <p className="text-white/60">{title}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* SECTION: Automation */}
+      <section id="automation" className="section py-24 md:py-32 border-t border-white/10">
+        <p className="text-xs tracking-[0.35em] text-white/50">AUTOMATION</p>
+        <h2 className="h-hero text-4xl sm:text-5xl">A big zoom forward.</h2>
+        <p className="h-lead mt-6 max-w-3xl">
+          See deeper context with automatic research and call prep. Zoom into the details that
+          close deals—not the CRM.
+        </p>
+
+        <div className="mt-10 grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="frame h-[36vh] bg-gradient-to-b from-white/5 to-white/[0.02] grid place-items-center">
+            <span className="text-white/60">Panel A (motion)</span>
+          </div>
+          <div className="frame h-[36vh] bg-gradient-to-b from-white/5 to-white/[0.02] grid place-items-center">
+            <span className="text-white/60">Panel B (motion)</span>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section id="get-started" className="section py-24 md:py-32 border-t border-white/10">
+        <div className="text-center">
+          <h2 className="h-hero text-4xl sm:text-5xl">Launch your co-pilot in days, not months.</h2>
+          <p className="h-lead mt-6">Works with your current script and calendar—no rip-and-replace required.</p>
+          <div className="mt-8 flex items-center justify-center gap-3">
+            <a className="btn primary" href="#">Start free</a>
+            <a className="btn" href="#pricing">See pricing</a>
+          </div>
+          <p className="text-xs text-white/40 mt-10">© {new Date().getFullYear()} Zias, Inc.</p>
+        </div>
+      </section>
+    </main>
+  );
+}
+
+
+### APPLY SCAN (shows risky @apply lines)
+app/globals.css.bak:25:.divider{ @apply border-t border-white/10; }
+app/globals.css.bak:26:.btn-primary{ @apply inline-flex items-center gap-2 rounded-full px-5 py-3 text-sm font-medium bg-white/10 hover:bg-white/20 text-white ring-1 ring-[var(--ring)] transition; }
+app/globals.css.bak:27:.frame{ @apply rounded-2xl overflow-hidden ring-1 ring-[var(--ring)] shadow-[0_20px_60px_rgba(0,0,0,.45)]; }
+app/globals.css:22:.page{ @apply relative overflow-x-clip; }
+app/globals.css:23:.section{ @apply container max-w-6xl px-4 md:px-6; }
+app/globals.css:26:.btn{ @apply inline-flex items-center gap-2 rounded-full px-5 py-3 text-sm font-medium ring-1 ring-[var(--ring)] text-white bg-white/10 hover:bg-white/20 transition; }
+app/globals.css:27:.btn.primary{ @apply bg-white text-black hover:bg-white/90; }
+app/globals.css:30:.frame{ @apply rounded-2xl overflow-hidden ring-1 ring-[var(--ring)] shadow-soft; }
+app/globals.css:33:.h-hero{ @apply text-h1 font-semibold tracking-tight; }
+app/globals.css:34:.h-lead{ @apply text-h2 text-[var(--dim)]; }
+
+### EXTRA CSS IN app/
+app/page.module.css
+app/globals.css

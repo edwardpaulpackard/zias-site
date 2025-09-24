@@ -1,0 +1,41 @@
+import "./globals.css";
+import type { Metadata } from "next";
+import { Inter } from "next/font/google";
+
+const inter = Inter({ subsets: ["latin"] });
+
+export const metadata: Metadata = {
+  title: "Zias — Sales Co-Pilot",
+  description: "Apple-style product landing built with Next.js + Tailwind + Framer Motion",
+};
+
+export default function RootLayout({ children }: { children: React.ReactNode }) {
+  return (
+    <html lang="en">
+      <body className={inter.className}>
+        <header className="nav sticky top-0 z-50">
+          <div className="container flex items-center h-14 justify-between">
+            <div className="flex items-center gap-3">
+              <span className="inline-block h-6 w-6 rounded-full bg-gradient-to-br from-white/80 to-white/30" />
+              <span className="text-sm text-ink/80">Zias</span>
+            </div>
+            <nav className="hidden md:flex items-center gap-6 text-sm text-ink/70">
+              <a href="#design" className="hover:text-ink">Design</a>
+              <a href="#automation" className="hover:text-ink">Automation</a>
+              <a href="#crm" className="hover:text-ink">CRM</a>
+              <a href="#pricing" className="btn-outline">Pricing</a>
+              <a href="#get" className="btn">Get started</a>
+            </nav>
+          </div>
+        </header>
+        {children}
+        <footer className="border-t border-white/10 mt-20">
+          <div className="container py-10 text-sm text-dim">
+            © {new Date().getFullYear()} Zias, Inc.
+          </div>
+        </footer>
+      </body>
+    </html>
+  );
+}
+

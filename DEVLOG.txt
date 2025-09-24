@@ -1,0 +1,20 @@
+
+> zias-site@0.1.0 dev
+> NEXT_DISABLE_TURBOPACK=1 next dev
+
+ ⚠ Port 3000 is in use by process 6094, using available port 3001 instead.
+   ▲ Next.js 15.5.3
+   - Local:        http://localhost:3001
+   - Network:      http://192.168.2.13:3001
+
+ ✓ Starting...
+ ✓ Ready in 1017ms
+ ○ Compiling / ...
+[Error: Cannot apply unknown utility class `md:px-6`. Are you using CSS modules or similar and missing `@reference`? https://tailwindcss.com/docs/functions-and-directives#reference-directive]
+ ✓ Compiled / in 1350ms (576 modules)
+ GET / 200 in 1548ms
+ ✓ Compiled /favicon.ico in 98ms (351 modules)
+ GET /favicon.ico 200 in 179ms
+[Error: Cannot apply unknown utility class `max-w-6xl`. Are you using CSS modules or similar and missing `@reference`? https://tailwindcss.com/docs/functions-and-directives#reference-directive]
+ ✓ Compiled in 120ms (567 modules)
+ GET / 200 in 91ms
