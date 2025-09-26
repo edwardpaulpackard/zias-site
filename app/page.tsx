@@ -1,8 +1,8 @@
 // app/page.tsx
 "use client";
-
+          
 import Image from "next/image";
-
+          
 export default function Page() {
   return (
     <main className="min-h-screen page">
@@ -19,21 +19,14 @@ export default function Page() {
           </nav>
         </div>
       </header>
-
-      {/* HERO */}
+          
+      {/* HERO (removed PRO, H1, and subhead only) */}
       <section className="section text-center py-24 md:py-32">
-        <p className="text-xs tracking-[0.35em] text-white/50">PRO</p>
-        <h1 className="h-hero mt-6 max-w-3xl mx-auto">
-          Say the right words, right on time.
-        </h1>
-        <p className="h-lead mt-6 max-w-2xl mx-auto">
-          Zias listens to your calls and gives you exactly what to say next—questions that open prospects up and rebuttals that remove friction—while learning from every conversation to raise your close rate.
-        </p>
-        <div className="mt-10 flex items-center justify-center gap-3">
+        <div className="mt-10 flex items-center justify-center space-x-6">
           <a className="btn" href="#live">▶ See it live on a call</a>
           <a className="btn primary" href="#get-started">Start a demo</a>
         </div>
-
+      
         {/* Hero image */}
         <div className="mt-14 grid place-items-center">
           <div className="frame bg-gradient-to-b from-white/5 to-white/[0.02] ring-[var(--ring)] shadow-soft overflow-hidden rounded-2xl w-full max-w-5xl">
@@ -66,12 +59,12 @@ export default function Page() {
           </div>
           {/* Improve */}
           <div className="frame p-6 bg-gradient-to-b from-white/5 to-white/[0.02]">
-            <h3 className="text-white/80 font-medium mb-4">Improve</h3>
+            <h3 className="text-white/80 font-medium mb-4">Improve</h3> 
             <p className="text-white/70 text-sm">Auto follow-ups + learning loop raise win-rate.</p>
           </div>
-        </div>
+        </div>  
       </section>
-
+            
       {/* SECTION: Automation */}
       <section id="automation" className="section py-24 md:py-32 border-t border-white/10">
         <p className="text-xs tracking-[0.35em] text-white/50">AUTOMATION</p>
@@ -80,7 +73,7 @@ export default function Page() {
           See deeper context with automatic research and call prep. Zoom into the details that
           close deals—not the CRM.
         </p>
-
+        
         <div className="mt-10 grid grid-cols-1 md:grid-cols-2 gap-6">
           <div className="frame h-[36vh] bg-gradient-to-b from-white/5 to-white/[0.02] grid place-items-center">
             <span className="text-white/60">Panel A (motion)</span>
@@ -90,20 +83,20 @@ export default function Page() {
           </div>
         </div>
       </section>
-
+        
       {/* CTA */}
       <section id="get-started" className="section py-24 md:py-32 border-t border-white/10">
         <div className="text-center">
           <h2 className="h-hero text-4xl sm:text-5xl">Launch your co-pilot in days, not months.</h2>
           <p className="h-lead mt-6">Works with your current script and calendar—no rip-and-replace required.</p>
-          <div className="mt-8 flex items-center justify-center gap-3">
+          <div className="mt-8 flex items-center justify-center space-x-6">
             <a className="btn primary" href="#">Start free</a>
             <a className="btn" href="#pricing">See pricing</a>
           </div>
           <p className="text-xs text-white/40 mt-10">© {new Date().getFullYear()} Zias, Inc.</p>
         </div>
       </section>
-    </main>
+    </main>   
   );
 }
 
